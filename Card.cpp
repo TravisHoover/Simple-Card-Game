@@ -6,27 +6,37 @@
 
 using namespace std;
 
-Card card;
+//Constructors
+/*****************************************************/
+//Card card;
+//Card card1(int,suite);
 
-Card card1(int,suite);
-
-friend ostream& operator << (ostream& os, const Card& cd){
-
-}
-
-bool operator < (const Card& cd) const {
+ostream& operator << (ostream& os, const Card& cd){
 
 }
 
-bool operator > (const Card& cd) const {
-
+bool Card::operator<(const Card &cd) const {
+    if(pointValue < cd.pointValue)
+        return true;
+    else
+        return false;
 }
 
-bool operator== (const Card& cd) const {
-
+bool Card::operator>(const Card &cd) const {
+    if(pointValue > cd.pointValue)
+        return true;
+    else
+        return false;
 }
 
-int getPointValue() const {
+bool Card::operator==(const Card &cd) const {
+    if(pointValue == cd.pointValue)
+        return true;
+    else
+        return false;
+}
+
+int Card::getPointValue() const {
 
 }
 

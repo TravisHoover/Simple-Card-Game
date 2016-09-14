@@ -3,35 +3,37 @@
 //
 
 #include "Player.h"
+#include "Card.h"
 
 using namespace std;
 
-Player(string);
+Player player();
+
 
 Card Player::playCard() {
 
 }
 
-void drawCard(Deck& dk){
+void Player::drawCard(Deck &dk) {
 
 }
 
-void addScore(Card acard){
+void Player::addScore(Card acard) {
+    score += acard.getPointValue();
+}
+
+int Player::total() const {
+    return score;
+}
+
+string Player::getName() const {
+    return name;
+}
+
+bool Player::emptyHand() const {
 
 }
 
-int total() const{
-
-}
-
-string getName() const{
-
-}
-
-bool emptyHand() const{
-
-}
-
-friend std::ostream& operator << (std::ostream&, const Player&){
+std::ostream& operator << (std::ostream&, const Player&){
 
 }
