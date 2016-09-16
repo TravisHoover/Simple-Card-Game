@@ -13,9 +13,13 @@ int main() {
 
     Player travis("Travis");
 
+    Deck::Deck();
+
     cout << travis.getName();
     cout << endl;
     cout << travis.total();
+
+
 
 
 

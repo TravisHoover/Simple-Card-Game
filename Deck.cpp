@@ -7,15 +7,19 @@
 
 using namespace std;
 
-
+//Constructor for the card deck. It will output all cards when called.
 Deck::Deck() {
     for(int i = 0; i < 4; i++){            //for loop to handle each suite
-        for(int j = 0; j < 13; j++){
+        for(int j = 1; j < 14; j++){
             int x = j;
+            if(j == 1)                      //if statement to assign value of 15 to Ace card
+                x = 15;
             if(j > 10)                      //if statement to assign value of 10 to royal cards, change later
                 x = 10;
-            Card(x, (suite)i);              //Create card
+            Card::Card(x,(suite)i);
+            cout << " ";
         }
+        cout << endl;
     }
 }
 
