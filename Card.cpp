@@ -8,11 +8,17 @@ using namespace std;
 
 //Constructors
 /*****************************************************/
-//Card card;
-//Card card1(int,suite);
+Card::Card() {
+
+}
+
+Card::Card(int faceValue, suite type) {
+
+}
 
 ostream& operator << (ostream& os, const Card& cd){
-
+    os << cd.pointValue;
+    return os;
 }
 
 bool Card::operator<(const Card &cd) const {
@@ -37,6 +43,6 @@ bool Card::operator==(const Card &cd) const {
 }
 
 int Card::getPointValue() const {
-
+    return pointValue;
 }
 

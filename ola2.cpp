@@ -10,10 +10,12 @@
 using namespace std;
 
 int main() {
-    
 
+    Player travis("Travis");
 
-
+    cout << travis.getName();
+    cout << endl;
+    cout << travis.total();
 
 
 

@@ -7,7 +7,10 @@
 
 using namespace std;
 
-Player player();
+Player::Player(string name) {
+    Player::name = name;
+    Player::score = 0;
+}
 
 
 Card Player::playCard() {
@@ -31,7 +34,10 @@ string Player::getName() const {
 }
 
 bool Player::emptyHand() const {
-
+    if(!hand)                           //if hand is empty
+        return true;
+    else
+        return false;
 }
 
 std::ostream& operator << (std::ostream&, const Player&){
