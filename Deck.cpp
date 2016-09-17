@@ -11,15 +11,16 @@ using namespace std;
 Deck::Deck() {
 
     //theDeck[Card_Num] = Card();            //initialize array of cards
-
-    for(int i = 0; i < 4; i++){            //for loop to handle each suite
-        for(int j = 1; j < 14; j++){         //for loop to handle each face value
-            int x = j;
-            if(j == 1)                      //if statement to assign value of 15 to Ace card
+    int deckIndex = 0;
+    for(int i = 1; i < 14; i++){            //for loop to handle each face value
+        for(int j = 0; j < 4; j++){         //for loop to handle each suite value
+            int x = i;
+            if(i == 1)                      //if statement to assign value of 15 to Ace card
                 x = 15;
-            if(j > 10)                      //if statement to assign value of 10 to royal cards, change later
+            if(i > 10)                      //if statement to assign value of 10 to royal cards, change later
                 x = 10;
-            theDeck[(i+j-1)] = Card(x,(suite)i);
+            theDeck[deckIndex] = Card(x,(suite)j);
+            deckIndex++;
             cout << " ";
         }
         cout << endl;
