@@ -11,12 +11,18 @@ using namespace std;
 //Constructors
 /*****************************************************/
 Card::Card() {
-
 }
 
 Card::Card(int faceValue, suite type) {
     Card::faceValue = faceValue;
     Card::type = type;
+
+    if(faceValue <= 10)
+        Card::pointValue = faceValue;
+    if(faceValue > 10)
+        Card::pointValue = 10;
+    if(faceValue == 15)
+        Card::pointValue = 15;
 
     cout << faceValue;
 
@@ -34,8 +40,8 @@ Card::Card(int faceValue, suite type) {
 }
 
 ostream& operator << (ostream& os, const Card& cd){
-    os << cd.pointValue;
-    return os;
+    //os << cd.faceValue << " " << cd.type;
+    //return os;
 }
 
 bool Card::operator<(const Card &cd) const {
@@ -60,6 +66,5 @@ bool Card::operator==(const Card &cd) const {
 }
 
 int Card::getPointValue() const {
-    return pointValue;
-}
 
+}

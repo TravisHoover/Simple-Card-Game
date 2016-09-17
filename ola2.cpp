@@ -12,13 +12,14 @@ using namespace std;
 int main() {
 
     Player travis("Travis");
+    Deck deck;
 
-    Deck::Deck();
 
     cout << travis.getName();
     cout << endl;
     cout << travis.total();
-
+    cout << endl;
+    deck.Shuffle();
 
 
 
