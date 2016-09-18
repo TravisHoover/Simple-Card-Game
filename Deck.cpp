@@ -34,17 +34,13 @@ Card Deck::dealCard() {
 }
 
 void Deck::Shuffle() {
-    //random_shuffle(1,Card_Num);
+    random_shuffle(&theDeck[0], &theDeck[52]);
+    int deckIndex = 0;
 /********************************** Display new deck composition ***************************************/
-    for(int i = 0; i < 4; i++){            //for loop to handle each suite
-        for(int j = 1; j < 14; j++){
-            int x = j;
-            if(j == 1)                      //if statement to assign value of 15 to Ace card
-                x = 15;
-            if(j > 10)                      //if statement to assign value of 10 to royal cards, change later
-                x = 10;
-            cout << " " << Card(x,(suite)i);
-            cout << " ";
+    for (int i = 0; i < 4; i++) {            //for loop to handle each suite
+        for (int j = 1; j < 14; j++) {
+            cout << " " << theDeck[deckIndex];
+            deckIndex++;
         }
         cout << endl;
     }
@@ -57,7 +53,8 @@ bool Deck::isEmpty() {
         return false;
 }
 
-ostream& operator << (ostream&, const Deck& deck){
-
+ostream& operator << (ostream& os, const Deck& deck){
+    os << deck.theDeck;
+    return os;
 }
 

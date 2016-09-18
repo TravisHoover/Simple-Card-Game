@@ -40,8 +40,16 @@ Card::Card(int faceValue, suite type) {
 }
 
 ostream& operator << (ostream& os, const Card& cd){
-    //os << cd.faceValue << " " << cd.type;
-    //return os;
+    os << cd.faceValue;
+    if(cd.type == hearts)
+        cout << "-hearts";
+    else if(cd.type == diamonds)
+        cout << "-diamonds";
+    else if(cd.type == clubs)
+        cout << "-clubs";
+    else if(cd.type == spades)
+        cout << "-spades";
+    return os;
 }
 
 bool Card::operator<(const Card &cd) const {
