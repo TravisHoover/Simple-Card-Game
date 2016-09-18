@@ -10,8 +10,7 @@ using namespace std;
 //Constructor for the card deck. It will output all cards when called.
 Deck::Deck() {
 
-    //theDeck[Card_Num] = Card();            //initialize array of cards
-    int deckIndex = 0;
+    topCard = 0;
     for(int i = 1; i < 14; i++){            //for loop to handle each face value
         for(int j = 0; j < 4; j++){         //for loop to handle each suite value
             int x = i;
@@ -19,8 +18,8 @@ Deck::Deck() {
                 x = 15;
             if(i > 10)                      //if statement to assign value of 10 to royal cards, change later
                 x = 10;
-            theDeck[deckIndex] = Card(x,(suite)j);
-            deckIndex++;
+            theDeck[topCard] = Card(x,(suite)j);
+            topCard++;
             cout << " ";
         }
         cout << endl;
@@ -29,28 +28,30 @@ Deck::Deck() {
 
 
 Card Deck::dealCard() {
-    return theDeck[topCard];
-
+    int index = topCard;
+    index--;
+    topCard--;                  //decrease size of deck by 1
+    return theDeck[index];
 }
 
 void Deck::Shuffle() {
     random_shuffle(&theDeck[0], &theDeck[52]);
     int deckIndex = 0;
 /********************************** Display new deck composition ***************************************/
-    for (int i = 0; i < 4; i++) {            //for loop to handle each suite
-        for (int j = 1; j < 14; j++) {
-            cout << " " << theDeck[deckIndex];
-            deckIndex++;
+        for(int i = 1; i < 14; i++){            //for loop to handle each face value
+             for(int j = 0; j < 4; j++){         //for loop to handle each suite value
+                 cout << " " << theDeck[deckIndex];
+                 deckIndex++;
+             }
+            cout << endl;
         }
-        cout << endl;
-    }
 }
 
 bool Deck::isEmpty() {
-    if(!topCard)
-        return true;
-    else
+    if(topCard > 0)
         return false;
+    else
+        return true;
 }
 
 ostream& operator << (ostream& os, const Deck& deck){

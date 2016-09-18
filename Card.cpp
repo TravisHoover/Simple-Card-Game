@@ -53,26 +53,26 @@ ostream& operator << (ostream& os, const Card& cd){
 }
 
 bool Card::operator<(const Card &cd) const {
-    if(pointValue < cd.pointValue)
+    if(this->faceValue < cd.faceValue)
         return true;
     else
         return false;
 }
 
 bool Card::operator>(const Card &cd) const {
-    if(pointValue > cd.pointValue)
+    if(this->faceValue > cd.faceValue)
         return true;
     else
         return false;
 }
 
 bool Card::operator==(const Card &cd) const {
-    if(pointValue == cd.pointValue)
+    if(this->faceValue == cd.faceValue)
         return true;
     else
         return false;
 }
 
 int Card::getPointValue() const {
-
+    return pointValue;
 }
